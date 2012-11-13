@@ -1,0 +1,375 @@
+﻿/* ========================== CSS Reset ========================== */
+*
+{
+    border: 0 none;
+    font-family: Helvetica, sans-serif, Arial;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+/* ========================== General Styles ========================== */
+html, body
+{
+    background: rgb(215,232,248);
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* ========================== Header Styles ========================== */
+header
+{
+    background: url("themes/base/images/bg_header.jpg") repeat-x top left;
+    height: 75px;
+    margin-top: 0px;
+    padding: 0px 0 0 0px;
+    width: 100%;
+}
+
+header h1
+{
+    padding-left: 5%;
+    padding-top: 8px;
+    float: left;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+header h1 a
+{
+    color: White;
+    font-weight: bold;
+    height: 47px;
+    line-height: 47px;
+}
+
+header h1 a:hover
+{
+    text-decoration: none;
+}
+
+header p
+{
+    padding-top: 8px;
+    background: url("themes/base/images/headerSeparator.jpg") no-repeat left;
+    color: White;
+    float: left;
+    height: 47px;
+    letter-spacing: 4px;
+    line-height: 47px;
+    margin-left: 33px;
+    padding-left: 30px;
+    text-transform: uppercase;
+}
+
+nav
+{
+    color: #999da3;
+    float: right;
+    letter-spacing: 4px;
+    margin-left: 33px;
+    height: 47px;
+    line-height: 47px;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+nav a
+{
+    color: #999da3;
+}
+
+ul#menu
+{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul#menu li
+{
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+
+footer
+{
+    background: url("themes/base/images/bg_header.jpg") repeat-x top left;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Height of the footer */
+    text-align: center;
+}
+
+footer p
+{
+    margin-top: 20px;
+    color: #999da3;
+}
+
+#footerSpacer
+{
+    padding: 10px;
+    padding-bottom: 60px; /* Height of the footer */
+}
+
+
+#container
+{
+    min-height: 100%;
+    position: relative;
+}
+
+
+#wrapper
+{
+    clear: both;
+    background-color: rgba(255,255,255,0.6);
+    margin: auto;
+    margin-top: 40px;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    width: 90%;
+    min-width: 320px;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 0px 20px 0.1px black;
+    -moz-box-shadow: 0 0px 20px 0.1px black;
+    box-shadow: 0 0px 20px 0.1px black;
+    padding: 40px;
+}
+
+#content
+{
+    text-align: left;
+    margin: 40px;
+}
+
+#wrapper input[type="text"], #wrapper input[type="password"]
+{
+    min-height: 40px;
+    width: 100%;
+}
+
+a
+{
+    color: #156f96;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+em
+{
+    font-style: italic;
+}
+
+h2, h3, h4, h5
+{
+    margin-bottom: 25px;
+}
+
+h1
+{
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+h2
+{
+    color: #445266;
+    font-size: 30px;
+}
+
+h3
+{
+    font-size: 20px;
+}
+
+h4
+{
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h4 a
+{
+    color: #3a404a;
+}
+
+img
+{
+    margin-bottom: 15px;
+}
+
+img.left
+{
+    float: left;
+    margin-right: 15px;
+}
+
+img.right
+{
+    float: right;
+    margin-left: 15px;
+}
+
+p, li
+{
+    color: #3a404a;
+    font-size: 15px;
+    line-height: 17px;
+    margin-bottom: 12px;
+}
+
+strong
+{
+    font-weight: bold;
+}
+
+ul
+{
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+.left
+{
+    float: left;
+}
+
+.right
+{
+    float: right;
+}
+
+.button
+{
+    display: block;
+    padding: 0;
+    text-indent: -9999px;
+}
+
+input[type="text"], input[type="password"]
+{
+    width: 150px;
+    display: block;
+    margin-bottom: 10px;
+    border: rgba(0,0,0,0.2);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+button.submit
+{
+    background: url("themes/base/images/button_submit.png") no-repeat bottom left;
+    cursor: pointer;
+    height: 25px;
+    text-indent: -9999px;
+    width: 77px;
+    float: right;
+}
+
+button.submit:hover
+{
+    background-position: top left;
+}
+
+#checkBoxDisplay
+{
+    margin-top: 10px;
+    color: rgb(150,150,150);
+}
+
+#contentFooter
+{
+    color: rgb(150,150,150);
+    margin: auto;
+    margin-top: 40px;
+    width: 80%;
+    text-align: center;
+    padding-top: 20px;
+    border: rgba(0,0,0,0.2);
+    border-top-style: solid;
+    border-width: 1px;
+}
+
+/* styles for validation helpers */
+.field-validation-error
+{
+    color: #e80c4d;
+    font-weight: bold;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+input.input-validation-error
+{
+    border: 1px solid #e80c4d;
+}
+
+input[type="checkbox"].input-validation-error
+{
+    border: 0 none;
+}
+
+.validation-summary-errors
+{
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+#loginForm .validation-error
+{
+    display: block;
+    margin-left: 15px;
+}
+
+#loginForm .validation-summary-errors ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+#loginForm .validation-summary-errors li
+{
+    display: inline;
+    list-style: none;
+    margin: 0;
+}
+
+#logoutForm {
+    display: inline;
+}

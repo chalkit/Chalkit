@@ -1,0 +1,54 @@
+﻿@model ChalkIt.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+@section styles{
+    @Styles.Render("~/Content/registration.css")
+}
+<section id="registrationForm">
+    <div id="registrationContent">
+        <h2>
+            Create an Account</h2>
+        <br />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <div>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.PersonalEmail)
+                @Html.TextBoxFor(m => m.PersonalEmail)
+                @Html.ValidationMessageFor(m => m.PersonalEmail)
+            </div>
+            <br />
+            <div id="checkBoxDisplay">
+                @Html.CheckBoxFor(m => m.TermsAndConditions)
+                <label for="TermsAndConditions">I agree to @Html.ActionLink("Terms and Conditions","TermsAndConditions","Account")</label>
+                <br />@Html.ValidationMessageFor(m => m.TermsAndConditions)
+                <button type="submit" class="submit">
+                    Submit</button>
+            </div>
+   
+        }
+    </div>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
