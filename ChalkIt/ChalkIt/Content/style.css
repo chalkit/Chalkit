@@ -18,7 +18,7 @@ html, body
     background: rgb(215,232,248);
     height: 100%;
     min-height: 100%;
-    min-width: 1100px;
+    min-width: 1200px;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -108,7 +108,7 @@ nav
             padding: 0.5em 2em;
             margin: 0;
             color: #999da3;
-            width: 70px;
+            width: 85px;
             text-align: center;
             line-height: 47px;
             vertical-align: middle;
@@ -140,7 +140,7 @@ nav
                 {
                     color: white;
                     background-color: black;
-                    width: 70px;
+                    width: 85px;
                 }
 
                 .menu li ul li a:hover
