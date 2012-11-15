@@ -40,8 +40,7 @@ namespace ChalkIt.Controllers
             {
                 if (ModelState.IsValid && user.Password == model.Password)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    HttpContext.Session.Timeout = 60 * 60 * 24;
+                    LoginUser(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
@@ -101,6 +100,7 @@ namespace ChalkIt.Controllers
                     }
                     db.RegisterModel.Add(model);
                     db.SaveChanges();
+                    LoginUser(model.UserName, false);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
@@ -421,6 +421,12 @@ namespace ChalkIt.Controllers
                 default:
                     return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
             }
+        }
+
+        private void LoginUser(string userName, bool rememberMe)
+        {
+            FormsAuthentication.SetAuthCookie(userName, rememberMe);
+            HttpContext.Session.Timeout = 60 * 60 * 24;
         }
         #endregion
     }

@@ -18,6 +18,7 @@ html, body
     background: rgb(215,232,248);
     height: 100%;
     min-height: 100%;
+    min-width: 1100px;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -32,41 +33,41 @@ header
     width: 100%;
 }
 
-header h1
-{
-    padding-left: 5%;
-    padding-top: 8px;
-    float: left;
-    text-transform: uppercase;
-    font-size: 18px;
-}
+    header h1
+    {
+        padding-left: 5%;
+        padding-top: 8px;
+        float: left;
+        text-transform: uppercase;
+        font-size: 18px;
+    }
 
-header h1 a
-{
-    color: White;
-    font-weight: bold;
-    height: 47px;
-    line-height: 47px;
-}
+        header h1 a
+        {
+            color: White;
+            font-weight: bold;
+            height: 47px;
+            line-height: 47px;
+        }
 
-header h1 a:hover
-{
-    text-decoration: none;
-}
+            header h1 a:hover
+            {
+                text-decoration: none;
+            }
 
-header p
-{
-    padding-top: 8px;
-    background: url("themes/base/images/headerSeparator.jpg") no-repeat left;
-    color: White;
-    float: left;
-    height: 47px;
-    letter-spacing: 4px;
-    line-height: 47px;
-    margin-left: 33px;
-    padding-left: 30px;
-    text-transform: uppercase;
-}
+    header p
+    {
+        padding-top: 8px;
+        background: url("themes/base/images/headerSeparator.jpg") no-repeat left;
+        color: White;
+        float: left;
+        height: 47px;
+        letter-spacing: 4px;
+        line-height: 47px;
+        margin-left: 33px;
+        padding-left: 30px;
+        text-transform: uppercase;
+    }
 
 nav
 {
@@ -74,31 +75,83 @@ nav
     float: right;
     letter-spacing: 4px;
     margin-left: 33px;
-    height: 47px;
-    line-height: 47px;
-    padding-left: 30px;
+    padding-left: 40px;
     padding-right: 20px;
+    height: 57px;
 }
 
-nav a
+    nav a
+    {
+        color: #999da3;
+    }
+/*style the main menu*/
+.menu
 {
-    color: #999da3;
-}
-
-ul#menu
-{
+    position:relative;
+    z-index:9999;
     margin: 0;
     padding: 0;
-    text-align: center;
+    height: 57px;
 }
 
-ul#menu li
-{
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
+    .menu li
+    {
+        list-style: none;
+        float: left;
+        font: 12px Arial, Helvetica, sans-serif #111;
+    }
 
+        .menu li a:link, .menu li a:visited
+        {
+            display: inline-block;
+            text-decoration: none;
+            padding: 0.5em 2em;
+            margin: 0;
+            color: #999da3;
+            width: 70px;
+            text-align: center;
+            line-height: 47px;
+            vertical-align: middle;
+        }
+
+        .menu li a:hover
+        {
+            background-color: black;
+        }
+
+        /*style the sub menu*/
+        .menu li ul
+        {
+            position: absolute;
+            visibility: hidden;
+            border-top: 1px solid #fff;
+            margin:0px;
+            margin-left: 0px;
+            padding: 0;
+        }
+
+            .menu li ul li
+            {
+                display: inline;
+                float: none;
+            }
+
+                .menu li ul li a:link, .menu li ul li a:visited
+                {
+                    color: white;
+                    background-color: black;
+                    width: 70px;
+                }
+
+                .menu li ul li a:hover
+                {
+                    background-color: #0CF;
+                }
+
+        .menu li a.username
+        {
+            color: white;
+        }
 
 footer
 {
@@ -110,11 +163,11 @@ footer
     text-align: center;
 }
 
-footer p
-{
-    margin-top: 20px;
-    color: #999da3;
-}
+    footer p
+    {
+        margin-top: 20px;
+        color: #999da3;
+    }
 
 #footerSpacer
 {
@@ -172,10 +225,10 @@ a
     text-decoration: none;
 }
 
-a:hover
-{
-    text-decoration: underline;
-}
+    a:hover
+    {
+        text-decoration: underline;
+    }
 
 em
 {
@@ -211,27 +264,27 @@ h4
     margin-bottom: 10px;
 }
 
-h4 a
-{
-    color: #3a404a;
-}
+    h4 a
+    {
+        color: #3a404a;
+    }
 
 img
 {
     margin-bottom: 15px;
 }
 
-img.left
-{
-    float: left;
-    margin-right: 15px;
-}
+    img.left
+    {
+        float: left;
+        margin-right: 15px;
+    }
 
-img.right
-{
-    float: right;
-    margin-left: 15px;
-}
+    img.right
+    {
+        float: right;
+        margin-left: 15px;
+    }
 
 p, li
 {
@@ -293,10 +346,10 @@ button.submit
     float: right;
 }
 
-button.submit:hover
-{
-    background-position: top left;
-}
+    button.submit:hover
+    {
+        background-position: top left;
+    }
 
 #checkBoxDisplay
 {
@@ -370,6 +423,7 @@ input[type="checkbox"].input-validation-error
     margin: 0;
 }
 
-#logoutForm {
+#logoutForm
+{
     display: inline;
 }

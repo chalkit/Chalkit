@@ -1,12 +1,19 @@
-﻿@if (Request.IsAuthenticated) 
-{ 
-        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) 
-        {
-            @Html.AntiForgeryToken()
+﻿@if (Request.IsAuthenticated)
+{
+    <a href="#" class="username">@User.Identity.Name </a>
+    <ul>
+        <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
             <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-        }
-} 
-else 
+
+            }
+        </li>
+        <li><a href="#">Manage</a></li>
+        <li><a href="#">Settings</a></li>
+    </ul>
+}
+else
 {
     @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
 }

@@ -1,41 +1,42 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - Chalk It</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @RenderSection("styles", required: false)
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Chalk It</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
     <div id="container">
-		<!-- BEGIN: header -->
-		<header>
-			<h1> @Html.ActionLink("Chalk it","Index","Home")</h1>
-			<p>Education Simplified</p>
-			<nav>
-            <ul id="menu">
-                  <li>@Html.ActionLink("Products |", "Index", "Home")</li>
-                  <li>@Html.ActionLink("Goal |", "Goal", "Home")</li>
-                  <li>@Html.ActionLink("Contact |", "Contact", "Home")</li>
-                  <li>@Html.Partial("_LoginPartial")</li>
-            </ul>
-         </nav>
-		</header>
-		<!-- END: header -->
-                            
+        <!-- BEGIN: header -->
+        <header>
+            <h1>@Html.ActionLink("Chalk it", "Index", "Home")</h1>
+            <p>Education Simplified</p>
+            <nav>
+                <ul class="menu">
+                    <li>@Html.ActionLink("Products", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Goal", "Goal", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.Partial("_LoginPartial")</li>
+                </ul>
+            </nav>
+        </header>
+        <!-- END: header -->
+
         <div id="wrapper">
-                @RenderBody()
+            @RenderBody()
         </div>
         <div id="footerSpacer">
-		</div>
+        </div>
         <footer>
             <p>&copy; 2012 Chalk it. All Rights Reserved</p>
         </footer>
     </div>
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/Layout")
+    @RenderSection("scripts", required: false)
+</body>
 </html>
