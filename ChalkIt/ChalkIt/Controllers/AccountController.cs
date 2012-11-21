@@ -35,10 +35,24 @@ namespace ChalkIt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            RegisterModel user = db.RegisterModel.Find(model.UserName);
-            if (user != null)
+            string password=null;
+            Author userAuthor = db.Authors.Find(model.UserName);
+            Student userStudent=null;
+            if (userAuthor == null)
             {
-                if (ModelState.IsValid && user.Password == model.Password)
+                userStudent = db.Students.Find(model.UserName);
+                if (userStudent != null)
+                {
+                    password = userStudent.Password;
+                }
+            }
+            else
+            {
+                password = userAuthor.Password;
+            }
+            if (userAuthor != null || userStudent != null)
+            {
+                if (ModelState.IsValid && password == model.Password)
                 {
                     LoginUser(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
@@ -46,7 +60,11 @@ namespace ChalkIt.Controllers
                     {
                         return RedirectToLocal(returnUrl);
                     }
-                    else
+                    else if (userAuthor != null) //if user is author
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else // if user is student
                     {
                         return RedirectToAction("Index", "Home");
                     }
@@ -93,15 +111,39 @@ namespace ChalkIt.Controllers
                 // Attempt to register the user
                 try
                 {
-                    if (db.RegisterModel.Find(model.UserName) != null)
+                    if (db.Authors.Find(model.UserName) != null || db.Students.Find(model.UserName) != null)
                     {
                         MembershipCreateUserException e = new MembershipCreateUserException(MembershipCreateStatus.DuplicateUserName);
                         throw e;
                     }
-                    db.RegisterModel.Add(model);
-                    db.SaveChanges();
-                    LoginUser(model.UserName, false);
-                    return RedirectToAction("Index", "Home");
+                    if (model.AccountType == AccountType.Author)
+                    {
+                        Author author = new Author();
+                        author.UserName = model.UserName;
+                        author.Password = model.Password;
+                        author.FirstName = model.FirstName;
+                        author.LastName = model.LastName;
+                        author.PersonalEmail = model.PersonalEmail;
+                        db.Authors.Add(author);
+                        db.SaveChanges();
+                        LoginUser(model.UserName, false);
+                        return RedirectToAction("Index", "Home"); // redirect to Author home page
+                    }
+                    else
+                    {
+                        Author student = new Author();
+                        student.UserName = model.UserName;
+                        student.Password = model.Password;
+                        student.FirstName = model.FirstName;
+                        student.LastName = model.LastName;
+                        student.PersonalEmail = model.PersonalEmail;
+                        db.Authors.Add(student);
+                        db.SaveChanges();
+                        LoginUser(model.UserName, false);
+                        return RedirectToAction("Index", "Home"); // redirect to student home page
+                    }
+                    
+                    
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -272,7 +314,7 @@ namespace ChalkIt.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLoginConfirmation(RegisterExternalLoginModel model, string returnUrl)
         {
-            string provider = null;
+            /*string provider = null;
             string providerUserId = null;
 
             if (User.Identity.IsAuthenticated || !OAuthWebSecurity.TryDeserializeProviderUserId(model.ExternalLoginData, out provider, out providerUserId))
@@ -307,7 +349,7 @@ namespace ChalkIt.Controllers
 
             ViewBag.ProviderDisplayName = OAuthWebSecurity.GetOAuthClientData(provider).DisplayName;
             ViewBag.ReturnUrl = returnUrl;
-            return View(model);
+            */return View(model);
         }
 
         //

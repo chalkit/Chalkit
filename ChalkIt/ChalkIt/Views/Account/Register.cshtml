@@ -32,10 +32,30 @@
                 @Html.PasswordFor(m => m.ConfirmPassword)
                 @Html.ValidationMessageFor(m => m.ConfirmPassword)
             </div>
+            <br />
+            <div>
+                @Html.LabelFor(m => m.FirstName)
+                @Html.TextBoxFor(m => m.FirstName)
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(m => m.LastName)
+                @Html.TextBoxFor(m => m.LastName)
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+            <br />
             <div>
                 @Html.LabelFor(m => m.PersonalEmail)
                 @Html.TextBoxFor(m => m.PersonalEmail)
                 @Html.ValidationMessageFor(m => m.PersonalEmail)
+            </div>
+            <br />
+            <div>
+                @Html.LabelFor(m => m.AccountType):&nbsp;&nbsp;&nbsp;
+                @Html.RadioButtonFor(m => m.AccountType, ChalkIt.Models.AccountType.Author) Author &nbsp;&nbsp;&nbsp;
+                @Html.RadioButtonFor(m => m.AccountType, ChalkIt.Models.AccountType.Strudent) Student &nbsp;&nbsp;&nbsp;
+                @Html.ValidationMessageFor(m => m.AccountType)
             </div>
             <br />
             <div id="checkBoxDisplay">

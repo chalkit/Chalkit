@@ -166,8 +166,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201211121841221_InitialCreate.cs" />
+    <Compile Include="Migrations\201211121841221_InitialCreate.Designer.cs">
+      <DependentUpon>201211121841221_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201211212159261_AddRegisterFirstNameLastName.cs" />
+    <Compile Include="Migrations\201211212159261_AddRegisterFirstNameLastName.Designer.cs">
+      <DependentUpon>201211212159261_AddRegisterFirstNameLastName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201211212227310_AddAccountType.cs" />
+    <Compile Include="Migrations\201211212227310_AddAccountType.Designer.cs">
+      <DependentUpon>201211212227310_AddAccountType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201211212302540_AddAuthorAndStudent.cs" />
+    <Compile Include="Migrations\201211212302540_AddAuthorAndStudent.Designer.cs">
+      <DependentUpon>201211212302540_AddAuthorAndStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\ChalkitDbContext.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\ValidationAttributes.cs" />
   </ItemGroup>
@@ -298,6 +317,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201211121841221_InitialCreate.resx">
+      <DependentUpon>201211121841221_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201211212159261_AddRegisterFirstNameLastName.resx">
+      <DependentUpon>201211212159261_AddRegisterFirstNameLastName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201211212227310_AddAccountType.resx">
+      <DependentUpon>201211212227310_AddAccountType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201211212302540_AddAuthorAndStudent.resx">
+      <DependentUpon>201211212302540_AddAuthorAndStudent.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

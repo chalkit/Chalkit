@@ -16,8 +16,8 @@ namespace ChalkIt.Models
         {
         }
 
-        public DbSet<UserProfile> UserProfiles { get; set; }
-        public DbSet<RegisterModel> RegisterModel { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Student> Students { get; set; }
     }
 
 }

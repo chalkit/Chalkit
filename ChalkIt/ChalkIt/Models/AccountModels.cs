@@ -9,6 +9,12 @@ using ChalkIt.Validation;
 
 namespace ChalkIt.Models
 {
+    public enum AccountType
+    {
+        Author,
+        Strudent
+    }
+
     [Table("UserProfile")]
     public class UserProfile
     {
@@ -80,9 +86,21 @@ namespace ChalkIt.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
+
+        [Required]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Personal Email")]
         public string PersonalEmail { get; set; }
+
+        [Required]
+        [Display(Name = "Account Type")]
+        public AccountType AccountType { get; set; }
 
         [Required]
         [Display(Name = "Terms and Conditions")]
