@@ -62,7 +62,7 @@ namespace ChalkIt.Controllers
                     }
                     else if (userAuthor != null) //if user is author
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Author");
                     }
                     else // if user is student
                     {
@@ -124,10 +124,11 @@ namespace ChalkIt.Controllers
                         author.FirstName = model.FirstName;
                         author.LastName = model.LastName;
                         author.PersonalEmail = model.PersonalEmail;
+                        author.Courses = new List<Course>();
                         db.Authors.Add(author);
                         db.SaveChanges();
                         LoginUser(model.UserName, false);
-                        return RedirectToAction("Index", "Home"); // redirect to Author home page
+                        return RedirectToAction("Index", "Author"); // redirect to Author home page
                     }
                     else
                     {

@@ -34,5 +34,8 @@ namespace ChalkIt.Models
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Personal Email")]
         public string PersonalEmail { get; set; }
+
+        [Required]
+        public virtual List<Course> Courses { get; set; }
     }
 }

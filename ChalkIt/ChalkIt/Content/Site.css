@@ -2,6 +2,7 @@
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
+    overflow-x:hidden;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
+    overflow-x:hidden;
 }
 
 a {
