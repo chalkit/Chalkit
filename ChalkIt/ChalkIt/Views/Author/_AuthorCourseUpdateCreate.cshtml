@@ -1,0 +1,17 @@
+﻿@model ChalkIt.Models.Course
+
+<h2>Add a Course</h2>
+<br />
+
+
+<div>
+    @Html.LabelFor(m => m.CourseName)
+    @Html.TextBoxFor(m => m.CourseName)
+    @Html.ValidationMessageFor(m => m.CourseName)
+</div>
+<br />
+<div>
+    @Html.LabelFor(m => m.CourseDescription)
+    @Html.TextBoxFor(m => m.CourseDescription)
+    @Html.ValidationMessageFor(m => m.CourseDescription)
+</div>

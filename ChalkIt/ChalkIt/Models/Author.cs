@@ -14,7 +14,7 @@ namespace ChalkIt.Models
         [Key]
         [Required]
         [Display(Name = "User name")]
-        public string UserName { get; set; }
+        public string AuthorUserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -36,6 +36,6 @@ namespace ChalkIt.Models
         public string PersonalEmail { get; set; }
 
         [Required]
-        public virtual List<Course> Courses { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
     }
 }

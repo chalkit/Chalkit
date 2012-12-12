@@ -21,6 +21,10 @@ namespace ChalkIt.Models
         [Display(Name = "Course name")]
         public string CourseName { get; set; }
 
-        public virtual Author Author { get; set; }
+        [Required]
+        [Display(Name = "Course description")]
+        public string CourseDescription { get; set; }
+
+        public virtual ICollection<Author> Authors { get; set; }
     }
 }

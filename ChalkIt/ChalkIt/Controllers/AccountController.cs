@@ -9,6 +9,8 @@ using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using ChalkIt.Models;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace ChalkIt.Controllers
 {
@@ -62,7 +64,7 @@ namespace ChalkIt.Controllers
                     }
                     else if (userAuthor != null) //if user is author
                     {
-                        return RedirectToAction("Index", "Author");
+                        return RedirectToAction("Index", "Author",userAuthor);
                     }
                     else // if user is student
                     {
@@ -118,22 +120,35 @@ namespace ChalkIt.Controllers
                     }
                     if (model.AccountType == AccountType.Author)
                     {
-                        Author author = new Author();
-                        author.UserName = model.UserName;
-                        author.Password = model.Password;
-                        author.FirstName = model.FirstName;
-                        author.LastName = model.LastName;
-                        author.PersonalEmail = model.PersonalEmail;
-                        author.Courses = new List<Course>();
-                        db.Authors.Add(author);
-                        db.SaveChanges();
+                        try
+                        {
+                            Author author = new Author();
+                            author.AuthorUserName = model.UserName;
+                            author.Password = model.Password;
+                            author.FirstName = model.FirstName;
+                            author.LastName = model.LastName;
+                            author.PersonalEmail = model.PersonalEmail;
+                            author.Courses = new List<Course>();
+                            db.Authors.Add(author);
+                            db.SaveChanges();
+                        }
+                        catch (DbEntityValidationException dbEx)
+                        {
+                            foreach (var validationErrors in dbEx.EntityValidationErrors)
+                            {
+                                foreach (var validationError in validationErrors.ValidationErrors)
+                                {
+                                    Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                                }
+                            }
+                        }
                         LoginUser(model.UserName, false);
                         return RedirectToAction("Index", "Author"); // redirect to Author home page
                     }
                     else
                     {
                         Author student = new Author();
-                        student.UserName = model.UserName;
+                        student.AuthorUserName = model.UserName;
                         student.Password = model.Password;
                         student.FirstName = model.FirstName;
                         student.LastName = model.LastName;

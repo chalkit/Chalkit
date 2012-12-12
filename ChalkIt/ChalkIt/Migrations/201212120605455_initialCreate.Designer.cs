@@ -5,13 +5,13 @@ namespace ChalkIt.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class AddAuthorAndStudent : IMigrationMetadata
+    public sealed partial class initialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAuthorAndStudent));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201211212302540_AddAuthorAndStudent"; }
+            get { return "201212120605455_initialCreate"; }
         }
         
         string IMigrationMetadata.Source

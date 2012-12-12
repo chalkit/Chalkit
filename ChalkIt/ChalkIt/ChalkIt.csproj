@@ -167,25 +167,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201211121841221_InitialCreate.cs" />
-    <Compile Include="Migrations\201211121841221_InitialCreate.Designer.cs">
-      <DependentUpon>201211121841221_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201211212159261_AddRegisterFirstNameLastName.cs" />
-    <Compile Include="Migrations\201211212159261_AddRegisterFirstNameLastName.Designer.cs">
-      <DependentUpon>201211212159261_AddRegisterFirstNameLastName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201211212227310_AddAccountType.cs" />
-    <Compile Include="Migrations\201211212227310_AddAccountType.Designer.cs">
-      <DependentUpon>201211212227310_AddAccountType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201211212302540_AddAuthorAndStudent.cs" />
-    <Compile Include="Migrations\201211212302540_AddAuthorAndStudent.Designer.cs">
-      <DependentUpon>201211212302540_AddAuthorAndStudent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201212111621174_changesToAuthorStudent.cs" />
-    <Compile Include="Migrations\201212111621174_changesToAuthorStudent.Designer.cs">
-      <DependentUpon>201212111621174_changesToAuthorStudent.cs</DependentUpon>
+    <Compile Include="Migrations\201212120605455_initialCreate.cs" />
+    <Compile Include="Migrations\201212120605455_initialCreate.Designer.cs">
+      <DependentUpon>201212120605455_initialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -323,6 +307,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Goal.cshtml" />
     <Content Include="Views\Author\Index.cshtml" />
+    <Content Include="Views\Author\_AuthorCourseUpdateCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -332,20 +317,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201211121841221_InitialCreate.resx">
-      <DependentUpon>201211121841221_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201211212159261_AddRegisterFirstNameLastName.resx">
-      <DependentUpon>201211212159261_AddRegisterFirstNameLastName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201211212227310_AddAccountType.resx">
-      <DependentUpon>201211212227310_AddAccountType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201211212302540_AddAuthorAndStudent.resx">
-      <DependentUpon>201211212302540_AddAuthorAndStudent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201212111621174_changesToAuthorStudent.resx">
-      <DependentUpon>201212111621174_changesToAuthorStudent.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201212120605455_initialCreate.resx">
+      <DependentUpon>201212120605455_initialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
