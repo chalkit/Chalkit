@@ -1,6 +1,6 @@
 ﻿@if (Request.IsAuthenticated)
 {
-    <a href="#" class="username">@User.Identity.Name </a>
+    <a href="javascript:document.getElementById('logoutForm').submit()" class="username">@User.Identity.Name </a>
     <ul>
         <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
             {

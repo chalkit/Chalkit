@@ -84,20 +84,14 @@
         
            -->
 
-
         <div class="partialViewFormDiv">
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true)
-                if (false)
-                {
-                    @Html.Partial("_AuthorCourseUpdateCreate", Model.Courses.ElementAt(0))
-                }
-                else
-                {
+                <div class="courseForm">
                     @Html.Partial("_AuthorCourseUpdateCreate", new ChalkIt.Models.Course())
-                }
+                 </div>
                 <button type="submit" class="submit">Submit</button>   
             }
         </div>
@@ -107,8 +101,9 @@
         <ul class="iconStyleListContainer">
             @foreach(ChalkIt.Models.Course course in Model.Courses)
             {
+                string redirecturl = Url.Action("Course", "Author", course.CourseID);
                 <li>
-                    <div class="iconStyleBoxitem">
+                    <div class="iconStyleBoxitem" onclick="redirectTo(@redirecturl)">
                         @course.CourseName 
                     </div>
                 </li>

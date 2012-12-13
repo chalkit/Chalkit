@@ -53,5 +53,24 @@ namespace ChalkIt.Controllers
             return RedirectToAction("Index", "Author",user);
         }
 
+        public PartialViewResult EditCourse()
+        {
+            Author userAuthor = new Author();
+            using (ChalkitDbContext db = new ChalkitDbContext())
+            {
+               userAuthor = db.Authors.Find(HttpContext.User.Identity.Name);
+               db.Entry(userAuthor).Collection(x => x.Courses).Load();
+                foreach(Course tempCourse in userAuthor.Courses)
+                {
+                    if(true)//tempCourse.CourseID == 0)
+                    {
+                        return PartialView("_AuthorCourseUpdateCreate",tempCourse);
+                    }
+                }
+            }
+            return PartialView("_AuthorCourseUpdateCreate", new Course());
+        }
+
+       
     }
 }
