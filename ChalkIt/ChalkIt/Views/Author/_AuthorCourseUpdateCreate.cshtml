@@ -32,6 +32,9 @@ else
 }
 else
 {
-    <div class="buttonStyle">Delete</div>
+    string actionUrl = Url.Action("DeleteCourse", "Author", new { courseID = Model.CourseID });
+    <a style="display:inline-block" href='@actionUrl'>
+        <div class="buttonStyle">Delete</div>
+    </a>
     <button type="submit" class="submit">Update</button> 
 }

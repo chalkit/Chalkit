@@ -66,22 +66,23 @@
 #hroizontalBarScrollLeftButton, #hroizontalBarScrollRightButton
 {
     height: 100px;
-    width:3%;
-    line-height:100px;
+    width: 3%;
+    line-height: 100px;
     overflow: hidden;
     display: inline-block;
     background-color: gray;
-    text-align:center;
-    padding:4px;
+    text-align: center;
+    padding: 4px;
 }
 
 #hroizontalBarScrollLeftButton
 {
-    float:left;
+    float: left;
 }
+
 #hroizontalBarScrollRightButton
 {
-    float:right;
+    float: right;
 }
 
 
@@ -99,42 +100,46 @@
     -webkit-border-radius: 4px;
     -khtml-border-radius: 4px;
     border-radius: 4px;
-    -webkit-box-shadow: 0 0px 4px 0.1px black;
-    -moz-box-shadow: 0 0px 4px 0.1px black;
-    box-shadow: 0 0px 4px 0.1px black;
+    border: 1px solid grey;
     vertical-align: middle;
     overflow: hidden;
     padding: 6px;
+    background-color: #d8e0e8;
     /* IE10 Consumer Preview */
-    background-image: -ms-linear-gradient(top, #FAFAFA 0%, #CDCDCD 100%);
+    background-image: -ms-linear-gradient(top, #F5F5F5 0%, #D8E0E8 100%);
     /* Mozilla Firefox */
-    background-image: -moz-linear-gradient(top, #FAFAFA 0%, #CDCDCD 100%);
+    background-image: -moz-linear-gradient(top, #F5F5F5 0%, #D8E0E8 100%);
     /* Opera */
-    background-image: -o-linear-gradient(top, #FAFAFA 0%, #CDCDCD 100%);
+    background-image: -o-linear-gradient(top, #F5F5F5 0%, #D8E0E8 100%);
     /* Webkit (Safari/Chrome 10) */
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FAFAFA), color-stop(1, #CDCDCD));
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F5F5F5), color-stop(1, #D8E0E8));
     /* Webkit (Chrome 11+) */
-    background-image: -webkit-linear-gradient(top, #FAFAFA 0%, #CDCDCD 100%);
+    background-image: -webkit-linear-gradient(top, #F5F5F5 0%, #D8E0E8 100%);
     /* W3C Markup, IE10 Release Preview */
-    background-image: linear-gradient(to bottom, #FAFAFA 0%, #CDCDCD 100%);
-
+    background-image: linear-gradient(to bottom, #F5F5F5 0%, #D8E0E8 100%);
     display: inline-block;
 }
 
 
 .iconStyleListContainer
 {
-    background-color: rgb(243,243,243);
     display: block;
     width: 100%;
     padding: 0px;
     margin: 0;
     list-style: none;
-    margin-top:200px;
+    margin-top: 10px;
 }
 
-.iconStyleListContainer li
+    .iconStyleListContainer li
+    {
+        display: inline-block;
+        padding: 10px;
+    }
+
+.iconStyleListWrapper
 {
-    display: inline-block;
-    padding:10px;
+    border-top: 1px solid #d8e0e8;
+    margin-top:20px;
+    padding-top:20px;
 }

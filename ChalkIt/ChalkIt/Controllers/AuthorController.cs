@@ -81,6 +81,32 @@ namespace ChalkIt.Controllers
             return PartialView("_AuthorCourseUpdateCreate", new Course());
         }
 
+        public ActionResult DeleteCourse(int courseID)
+        {
+            using (ChalkitDbContext db = new ChalkitDbContext())
+            {
+                try
+                {
+                    Course existingCourse = db.Courses.Find(courseID);
+                    if (existingCourse != null)
+                    {
+                        db.Courses.Remove(existingCourse);
+                    }
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException dbEx)
+                {
+                    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        }
+                    }
+                }
+            }
+            return RedirectToAction("Index", "Author");
+        }
        
     }
 }
