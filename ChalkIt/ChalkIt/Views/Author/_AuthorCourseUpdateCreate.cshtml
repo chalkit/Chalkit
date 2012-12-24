@@ -1,6 +1,13 @@
 ﻿@model ChalkIt.Models.Course
 
-<h2>Add a Course</h2>
+@if(Model.CourseName == null)
+{
+    <h2>Add a Course</h2>
+}
+else
+{
+    <h2>Edit a Course</h2>
+}
 <br />
 
 
@@ -15,3 +22,16 @@
     @Html.TextBoxFor(m => m.CourseDescription)
     @Html.ValidationMessageFor(m => m.CourseDescription)
 </div>
+<div>
+    @Html.TextBoxFor(m => m.CourseID,new { style = "display: none;" })
+</div>
+<br />
+@if (Model.CourseName == null)
+{
+    <button type="submit" class="submit">Add</button> 
+}
+else
+{
+    <div class="buttonStyle">Delete</div>
+    <button type="submit" class="submit">Update</button> 
+}

@@ -314,12 +314,7 @@ ul
     float: right;
 }
 
-.button
-{
-    display: block;
-    padding: 0;
-    text-indent: -9999px;
-}
+
 
 input[type="text"], input[type="password"]
 {
@@ -335,20 +330,23 @@ input[type="text"], input[type="password"]
     border-width: 1px;
 }
 
-button.submit
+button, .buttonStyle
 {
-    background: url("themes/base/images/button_submit.png") no-repeat bottom left;
-    cursor: pointer;
-    height: 25px;
-    text-indent: -9999px;
-    width: 77px;
-    float: right;
+    text-align:center;
+    width:200px;
+    height:40px;
+    line-height:40px;
+    display: block;
+    border:2px solid;
+    background-color:rgb(36,142,194);
+    color: white;
+    margin: 0 auto;
 }
 
-    button.submit:hover
-    {
-        background-position: top left;
-    }
+button
+{
+    height:44px;
+}
 
 #checkBoxDisplay
 {

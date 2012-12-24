@@ -9,6 +9,32 @@
 }
 <section id="AuthorHome">
     <div id="authorHomeContent">
+        <div class="partialViewFormDiv">
+            @using (Html.BeginForm("AddOrEditCourse", "Author", new { userName = Model.AuthorUserName }, FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="courseForm">
+                    @Html.Partial("_AuthorCourseUpdateCreate", new ChalkIt.Models.Course())
+                 </div>  
+            }
+        </div>
+
+
+
+        <ul class="iconStyleListContainer">
+            @foreach(ChalkIt.Models.Course course in Model.Courses)
+            {
+                string actionUrl = Url.Action("EditCourse", "Author", new { courseID = course.CourseID });
+                <li>
+                        <div class="iconStyleBoxitem" onclick="ajaxChangeCourseForm('@actionUrl')">
+                            @course.CourseName 
+                        </div>
+                </li>
+            }
+        </ul>
+
+
         <!-- <button id="hroizontalBarScrollLeftButton">Left</button>
         <button id="hroizontalBarScrollRightButton"> right</button>
         <div class="hroizontalBarScrollFrame">
@@ -83,34 +109,6 @@
         </div>
         
            -->
-
-        <div class="partialViewFormDiv">
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
-                <div class="courseForm">
-                    @Html.Partial("_AuthorCourseUpdateCreate", new ChalkIt.Models.Course())
-                 </div>
-                <button type="submit" class="submit">Submit</button>   
-            }
-        </div>
-
-
-
-        <ul class="iconStyleListContainer">
-            @foreach(ChalkIt.Models.Course course in Model.Courses)
-            {
-                string redirecturl = Url.Action("Course", "Author", course.CourseID);
-                <li>
-                    <div class="iconStyleBoxitem" onclick="redirectTo(@redirecturl)">
-                        @course.CourseName 
-                    </div>
-                </li>
-            }
-        </ul>
-
-
 
 
 

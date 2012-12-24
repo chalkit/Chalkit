@@ -62,8 +62,10 @@
                 @Html.CheckBoxFor(m => m.TermsAndConditions)
                 <label for="TermsAndConditions">I agree to @Html.ActionLink("Terms and Conditions","TermsAndConditions","Account")</label>
                 <br />@Html.ValidationMessageFor(m => m.TermsAndConditions)
+                <br />
+                <br />
                 <button type="submit" class="submit">
-                    Submit</button>
+                    Register</button>
             </div>
    
         }

@@ -27,16 +27,26 @@ namespace ChalkIt.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Author user, Course course)
+        public ActionResult AddOrEditCourse(string userName, Course course)
         {
+            Author userAuthor = new Author();
             using (ChalkitDbContext db = new ChalkitDbContext())
             {
                 try
                 {
-                    db.Authors.Attach(user);
-                    db.Courses.Add(course);
-                    db.Entry(user).Collection(x => x.Courses).Load();
-                    user.Courses.Add(course);
+                    userAuthor = db.Authors.Find(userName);
+                    Course existingCourse = db.Courses.Find(course.CourseID);
+                    if (existingCourse == null)
+                    {
+                        db.Courses.Add(course);
+                        db.Entry(userAuthor).Collection(x => x.Courses).Load();
+                        userAuthor.Courses.Add(course);
+                    }
+                    else
+                    {
+                        existingCourse.CourseName = course.CourseName;
+                        existingCourse.CourseDescription = course.CourseDescription;
+                    }
                     db.SaveChanges();
                 }
                 catch (DbEntityValidationException dbEx)
@@ -50,10 +60,10 @@ namespace ChalkIt.Controllers
                     }
                 }
             }
-            return RedirectToAction("Index", "Author",user);
+            return RedirectToAction("Index", "Author");
         }
 
-        public PartialViewResult EditCourse()
+        public PartialViewResult EditCourse(int courseID)
         {
             Author userAuthor = new Author();
             using (ChalkitDbContext db = new ChalkitDbContext())
@@ -62,7 +72,7 @@ namespace ChalkIt.Controllers
                db.Entry(userAuthor).Collection(x => x.Courses).Load();
                 foreach(Course tempCourse in userAuthor.Courses)
                 {
-                    if(true)//tempCourse.CourseID == 0)
+                    if(tempCourse.CourseID == courseID)
                     {
                         return PartialView("_AuthorCourseUpdateCreate",tempCourse);
                     }

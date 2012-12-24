@@ -1,15 +1,17 @@
-﻿function ajaxChangeCourseForm(courseID)
+﻿function ajaxChangeCourseForm(actionUrl)
 {
-    resultHTML = jQuery.ajax({
+    $.ajax({
         type: 'GET',
-        data: courseID,
-        url: '/Author/EditCourse'
-    }).responseText;
+        url: actionUrl,
+        success: function (result) {
+            var div = $('.partialViewFormDiv');
+            var height = div.height();
+            div.animate({ height: '0px', opacity: '0.0' }, "medium", function(){
+                $('.courseForm').html(result);
+            });
+            div.animate({ height: height, opacity: '1.0' }, "medium");
+        }
+    });
 
-    $('.courseForm').html(resultHTML);
-}
-
-function redirectTo(url)
-{
-    window.location = url;
+   
 }

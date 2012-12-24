@@ -64,7 +64,7 @@ namespace ChalkIt.Controllers
                     }
                     else if (userAuthor != null) //if user is author
                     {
-                        return RedirectToAction("Index", "Author",userAuthor);
+                        return RedirectToAction("Index", "Author");
                     }
                     else // if user is student
                     {
