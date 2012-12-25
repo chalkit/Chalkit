@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ChalkIt.Models.Course>
+
+    <h2>Courses</h2>
+        <ul class="iconStyleListContainer">
+            @foreach(ChalkIt.Models.Course course in Model)
+            {
+                string actionUrl = Url.Action("EditCourse", "Author", new { courseID = course.CourseID });
+                <li>
+                        <div class="iconStyleBoxitem" onclick="ajaxChangeCourseForm('@actionUrl')">
+                            @course.CourseName 
+                        </div>
+                </li>
+            }
+        </ul>

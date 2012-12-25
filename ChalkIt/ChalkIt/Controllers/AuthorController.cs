@@ -23,6 +23,7 @@ namespace ChalkIt.Controllers
                userAuthor = db.Authors.Find(HttpContext.User.Identity.Name);
                db.Entry(userAuthor).Collection(x => x.Courses).Load();
             }
+            ViewBag.AuthorName = userAuthor.AuthorUserName;
             return View(userAuthor);
         }
 
@@ -70,6 +71,7 @@ namespace ChalkIt.Controllers
             {
                userAuthor = db.Authors.Find(HttpContext.User.Identity.Name);
                db.Entry(userAuthor).Collection(x => x.Courses).Load();
+               ViewBag.AuthorName = userAuthor.AuthorUserName;
                 foreach(Course tempCourse in userAuthor.Courses)
                 {
                     if(tempCourse.CourseID == courseID)
@@ -81,7 +83,7 @@ namespace ChalkIt.Controllers
             return PartialView("_AuthorCourseUpdateCreate", new Course());
         }
 
-        public ActionResult DeleteCourse(int courseID)
+        public PartialViewResult DeleteCourse(int courseID, string userName)
         {
             using (ChalkitDbContext db = new ChalkitDbContext())
             {
@@ -105,7 +107,21 @@ namespace ChalkIt.Controllers
                     }
                 }
             }
-            return RedirectToAction("Index", "Author");
+            ViewBag.AuthorName = userName;
+            return PartialView("_AuthorCourseUpdateCreate", new Course());
+        }
+
+
+        public PartialViewResult CourseList(string userName)
+        {
+            Author userAuthor = new Author();
+            using (ChalkitDbContext db = new ChalkitDbContext())
+            {
+                userAuthor = db.Authors.Find(userName);
+                db.Entry(userAuthor).Collection(x => x.Courses).Load();
+            }
+            ViewBag.AuthorName = userAuthor.AuthorUserName;
+            return PartialView("_AuthorCoursesList", userAuthor.Courses);
         }
        
     }

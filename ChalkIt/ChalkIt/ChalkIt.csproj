@@ -308,6 +308,7 @@
     <Content Include="Views\Home\Goal.cshtml" />
     <Content Include="Views\Author\Index.cshtml" />
     <Content Include="Views\Author\_AuthorCourseUpdateCreate.cshtml" />
+    <Content Include="Views\Author\_AuthorCoursesList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

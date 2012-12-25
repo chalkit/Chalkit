@@ -1,5 +1,9 @@
 ﻿@model ChalkIt.Models.Course
 
+<div class="message">
+
+</div>
+
 @if(Model.CourseName == null)
 {
     <h2>Add a Course</h2>
@@ -32,9 +36,12 @@ else
 }
 else
 {
-    string actionUrl = Url.Action("DeleteCourse", "Author", new { courseID = Model.CourseID });
-    <a style="display:inline-block" href='@actionUrl'>
-        <div class="buttonStyle">Delete</div>
-    </a>
+    string authorName = ViewBag.AuthorName;
+    string deleteCourseUrl = Url.Action("DeleteCourse", "Author", new { courseID = Model.CourseID, userName = authorName });
+    string courseListUrl = Url.Action("CourseList", "Author", new { userName = authorName });
+    string deleteMessage = "Deleted the course "+Model.CourseName;
+    <div class="buttonStyle" onclick="ajaxDeleteCourse('@deleteCourseUrl','@courseListUrl','@deleteMessage')">Delete</div>
     <button type="submit" class="submit">Update</button> 
 }
+
+

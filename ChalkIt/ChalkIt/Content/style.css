@@ -424,3 +424,19 @@ input[type="checkbox"].input-validation-error
 {
     display: inline;
 }
+
+/* ---- General Styles that are used everywhere*/
+.message
+{
+    width: 100%;
+    background-color:rgb(255,243,185);
+    height: 40px;
+    line-height: 40px;
+    color:black;
+    font-weight:700;
+    display:none;
+    text-align:center;
+    margin:0 auto;
+    border:1px solid rgb(255,224,66);
+    margin-bottom:10px;
+}
