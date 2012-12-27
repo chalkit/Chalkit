@@ -7,105 +7,29 @@
     @Styles.Render("~/Content/author.css")
     @Styles.Render("~/Content/horizontalScrollBar.css")
 }
+
 <section id="AuthorHome">
+    <div class="right">
+        @Html.Partial("_AuthorCourseExercisesList")
+    </div>
+    <div class="left">
+    </div>
     <div id="authorHomeContent">
+
         <div class="partialViewFormDiv">
-            @using (Html.BeginForm("AddOrEditCourse", "Author", new { userName = Model.AuthorUserName }, FormMethod.Post))
+
+            @using (Html.BeginForm("CreateOrModifyCourse", "Author", new { userName = Model.AuthorUserName }, FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true)
                 <div class="courseForm">
                     @Html.Partial("_AuthorCourseUpdateCreate", new ChalkIt.Models.Course())
-                 </div>  
+                </div>  
             }
         </div>
         <div class="iconStyleListWrapper">
-             @Html.Partial("_AuthorCoursesList", Model.Courses)
+            @Html.Partial("_AuthorCoursesList", Model.Courses)
         </div>
-
-
-        <!-- <button id="hroizontalBarScrollLeftButton">Left</button>
-        <button id="hroizontalBarScrollRightButton"> right</button>
-        <div class="hroizontalBarScrollFrame">
-            <ul class="hroizontalBarScrollSlidee">
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test 123456 iuoue kkj ljljlj Test 123456 iuoue kkj 
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Test
-                    </div>
-                </li>
-                <li>
-                    <div class="hroizontalBarScrollItem">
-                        Last
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-        
-           -->
-
-
-
-
-
-
-
-
     </div>
 </section>
 

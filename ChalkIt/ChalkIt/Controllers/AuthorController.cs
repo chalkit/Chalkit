@@ -28,7 +28,7 @@ namespace ChalkIt.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOrEditCourse(string userName, Course course)
+        public ActionResult CreateOrModifyCourse(string userName, Course course)
         {
             Author userAuthor = new Author();
             using (ChalkitDbContext db = new ChalkitDbContext())
@@ -39,12 +39,14 @@ namespace ChalkIt.Controllers
                     Course existingCourse = db.Courses.Find(course.CourseID);
                     if (existingCourse == null)
                     {
+                        course.Exercises = new List<Exercise>();
                         db.Courses.Add(course);
                         db.Entry(userAuthor).Collection(x => x.Courses).Load();
                         userAuthor.Courses.Add(course);
                     }
                     else
                     {
+                        db.Entry(existingCourse).Collection(x => x.Exercises).Load();
                         existingCourse.CourseName = course.CourseName;
                         existingCourse.CourseDescription = course.CourseDescription;
                     }
@@ -76,6 +78,7 @@ namespace ChalkIt.Controllers
                 {
                     if(tempCourse.CourseID == courseID)
                     {
+                        db.Entry(tempCourse).Collection(y => y.Exercises).Load();
                         return PartialView("_AuthorCourseUpdateCreate",tempCourse);
                     }
                 }
@@ -123,6 +126,12 @@ namespace ChalkIt.Controllers
             ViewBag.AuthorName = userAuthor.AuthorUserName;
             return PartialView("_AuthorCoursesList", userAuthor.Courses);
         }
+
+        public PartialViewResult AddCourse()
+        {
+            return PartialView("_AuthorCourseUpdateCreate", new Course());
+        }
+
        
     }
 }

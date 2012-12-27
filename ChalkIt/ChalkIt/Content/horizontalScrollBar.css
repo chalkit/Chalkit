@@ -143,3 +143,41 @@
     margin-top:20px;
     padding-top:20px;
 }
+
+
+/*---------------------------------*/
+/*-----------------------------*/
+.listStyleBoxitem
+{
+    height: 25px;
+    width: 200px;
+    height:30px;
+    text-align: center;
+   
+    border-bottom: 1px solid #d8e0e8;
+    vertical-align: middle;
+    overflow: hidden;
+    padding: 6px;
+    background-color: white;
+    display: block;
+}
+
+
+.listStyleListContainer
+{
+    display: block;
+    width: 212px;
+    height:250px;
+    padding: 0px;
+    margin: 0;
+    list-style: none;
+    margin-top: 10px;
+    overflow-x:hidden;
+    overflow-y:scroll;
+    
+}
+
+.listStyleListContainer ul
+{
+    height:5000px;
+}

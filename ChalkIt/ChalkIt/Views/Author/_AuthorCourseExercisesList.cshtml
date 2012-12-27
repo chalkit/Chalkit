@@ -1,0 +1,25 @@
+﻿@* @model IEnumerable<ChalkIt.Models.Exercise> *@
+ <h2 class="inlineBlock">Exercises</h2>&nbsp;&nbsp;&nbsp;&nbsp;
+    @{
+    string linkUrl = Url.Action("Index", "Course");
+    <a class="addButtonStyle" href='@linkUrl'>+</a>
+    }
+<ul class="listStyleListContainer">
+   @* @foreach (ChalkIt.Models.Exercise exercise in Model)
+    {
+        <li>
+            <div class="listStyleBoxitem" onclick="alert('TO Do')">
+                @exercise.ExerciseName
+            </div>
+        </li>
+    }*@
+    
+    @for (int i = 0; i <= 20; i++)
+    {
+        <li>
+            <div class="listStyleBoxitem" onclick="alert('TO Do')">
+               exercise @i
+            </div>
+        </li>
+    }
+</ul>

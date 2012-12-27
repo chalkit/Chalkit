@@ -26,5 +26,8 @@ namespace ChalkIt.Models
         public string CourseDescription { get; set; }
 
         public virtual ICollection<Author> Authors { get; set; }
+
+        [Required]
+        public virtual ICollection<Exercise> Exercises { get; set; }
     }
 }

@@ -343,6 +343,20 @@ button, .buttonStyle
     margin: 0 auto;
 }
 
+.addButtonStyle
+{
+    background-color:transparent;
+    color: rgb(36,142,194);
+    border: 1px solid rgb(36,142,194);
+    display: inline-block;
+    height:30px;
+    line-height:30px;
+    margin: 0 auto;
+    padding-left:10px;
+    padding-right: 10px;
+    font-size:x-large;
+}
+
 button
 {
     height:44px;
@@ -439,4 +453,9 @@ input[type="checkbox"].input-validation-error
     margin:0 auto;
     border:1px solid rgb(255,224,66);
     margin-bottom:10px;
+}
+
+.inlineBlock
+{
+    display:inline-block;
 }

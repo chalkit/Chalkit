@@ -20,6 +20,7 @@ namespace ChalkIt.Models
         public DbSet<Author> Authors { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<Exercise> Exercises { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

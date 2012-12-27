@@ -1,6 +1,10 @@
 ﻿@model IEnumerable<ChalkIt.Models.Course>
 
-    <h2>Courses</h2>
+    <h2 class="inlineBlock">Courses</h2>&nbsp;&nbsp;&nbsp;&nbsp;
+    @{
+    string addActionUrl = Url.Action("AddCourse", "Author");
+    <div class="addButtonStyle" onclick="ajaxChangeCourseForm('@addActionUrl')">+</div>
+    }
         <ul class="iconStyleListContainer">
             @foreach(ChalkIt.Models.Course course in Model)
             {
